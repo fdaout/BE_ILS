@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taritement du signal LOC reçu par l’avion &mdash; BE ILS</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ressources" href="../Ressources/ressources.html" />
+    <link rel="prev" title="Signal LOC reçu par l’avion" href="signal_LOC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BE Instrument landibng system (ILS)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Leçons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="presentation.html">Présentation du BE “Instrument Landing System” (ILS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fonctionnement.html">Principe de fonctionnement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_LOC.html">Signal LOC reçu par l’avion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Taritement du signal LOC reçu par l’avion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#traitement-du-signal-loc">Traitement du signal LOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#presentation-generale-du-traitement-du-signal-loc">Présentation générale du traitement du signal “LOC”</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signal-en-bande-de-base">Signal en bande de base</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#demodulation-du-signal">Démodulation du signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traitement-du-signal-demodule">Traitement du signal démodulé</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Ressources/ressources.html">Ressources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">A propos de</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../About/about.html">A propos de …</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BE Instrument landibng system (ILS)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Taritement du signal LOC reçu par l’avion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Cours/traitement_loc.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="taritement-du-signal-loc-recu-par-lavion">
+<h1>Taritement du signal LOC reçu par l’avion<a class="headerlink" href="#taritement-du-signal-loc-recu-par-lavion" title="Permalink to this heading"></a></h1>
+<p>Franck Daout</p>
+<p>septembre 2023</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pylab</span> 
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x7f38deb472d0&gt;
+%pylab is deprecated, use %matplotlib inline and import the required libraries.
+Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<section id="traitement-du-signal-loc">
+<h2>Traitement du signal LOC<a class="headerlink" href="#traitement-du-signal-loc" title="Permalink to this heading"></a></h2>
+<p>La première étape consiste à importer les données “LOC” sauvegardées à la leçon précédente. Ces données représentent le signal reçu par l’avion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the LOC data</span>
+
+<span class="c1">#parameter</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;../_static/data/loc_data.txt&#39;</span>
+<span class="n">alpha_s</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="mf">10e3</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f_list</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_list</span><span class="p">))</span>
+<span class="n">Vr_rfb</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_list</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_list</span><span class="p">)):</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">f_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">Vr_rfb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span>  <span class="nb">float</span><span class="p">(</span><span class="n">f_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Vr_rfb</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;RF signal after propagation with noise for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+
+<span class="n">sample_rate</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/77d311442ad683295e3b3730dc446bd759a62a6e59735cd244023d8bf26f3de0.png" src="../_images/77d311442ad683295e3b3730dc446bd759a62a6e59735cd244023d8bf26f3de0.png" />
+</div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Méthode</p>
+<p>Les traitements nécessaires se décomposent en deux étapes principales :</p>
+<ol class="arabic simple">
+<li><p>Démodulation IQ du signal reçu pour retrouver le signal en bande de base.</p></li>
+<li><p>Traitement du signal en bande de base afin de déterminer la position de l’avion.</p></li>
+</ol>
+</div>
+</section>
+<section id="presentation-generale-du-traitement-du-signal-loc">
+<h2>Présentation générale du traitement du signal “LOC”<a class="headerlink" href="#presentation-generale-du-traitement-du-signal-loc" title="Permalink to this heading"></a></h2>
+<p>La structure d’un récepteur ILS est présentée sur la <a class="reference internal" href="#traitement-ils"><span class="std std-numref">Fig. 10</span></a>.</p>
+<figure class="align-center" id="traitement-ils">
+<a class="reference internal image-reference" href="../_images/traitement_ILS.png"><img alt="../_images/traitement_ILS.png" src="../_images/traitement_ILS.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Schéma fonctionnel du récepteur du système ILS - extrait de “Influence of Aircraft Power Electronics Processing on
+Backup VHF Radio Systems”</em></span><a class="headerlink" href="#traitement-ils" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>La <a class="reference internal" href="#traitement-ils"><span class="std std-numref">Fig. 10</span></a> illustre un récepteur ILS. Deux antennes dipôles, l’une pour le canal “LOC” et l’autre pour le canal “GP” (Glide sloPe”), reçoivent les signaux ILS. Après le traitement RF et IF et la démodulation, le signal est filtré pour déterminer l’amplitude des signaux de navigation de 90 et 150 Hz. Puis la position de l’avion, via le paramètre <span class="math notranslate nohighlight">\(\alpha\)</span> est calculée :</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha=\frac{V_{rms90}}{V_{rms90}+V_{rms150}}
+\]</div>
+<p>avec <span class="math notranslate nohighlight">\(V_{rms90}\)</span>, la valeur efficace du signal à la sortie du filtre passe-bande 90Hz et <span class="math notranslate nohighlight">\(V_{rms150}\)</span>, la tension efficace à la sortie du filtre passe-bande 150Hz.</p>
+<p>Dans la suite, nous allons nous intéresser au signal LOC et décrire les traitements numériques nécessaires pour obtenir la valeur de <span class="math notranslate nohighlight">\(\alpha\)</span>. Cette démarche s’inspire de la <a class="reference internal" href="#traitement-ils"><span class="std std-numref">Fig. 10</span></a>.</p>
+<section id="signal-en-bande-de-base">
+<h3>Signal en bande de base<a class="headerlink" href="#signal-en-bande-de-base" title="Permalink to this heading"></a></h3>
+<p>Au niveau du récepteur, à la réception, le signal <span class="math notranslate nohighlight">\(Vr{RF}(t)\)</span> est d’abord multiplié par une sinusoïde et un cosinus pour obtenir les composantes en bande de base <a class="reference external" href="https://en.wikipedia.org/wiki/In-phase_and_quadrature_components">I et Q</a> :</p>
+<div class="math notranslate nohighlight">
+\[
+I(t) = Vr_{RF}(t) \cos (2 \pi f_c t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q(t) = -Vr_{RF}(t) \sin (2 \pi f_c t)
+\]</div>
+<p>Le module permettant RF de réaliser ce calcul est appelé “mélangeur” (<a class="reference external" href="https://www.electronics-notes.com/articles/radio/rf-mixer/rf-mixing-basics.php">mixer</a>) et plus précisément mélangeur IQ.</p>
+<p>L’opération ci-dessus permet de translater le signal autour de “0Hz”, mais aussi autour de la fréquence <span class="math notranslate nohighlight">\(2f_c\)</span>. Cette composante fréquentielle est supprimée par un filtre passe-bas.</p>
+<p>Nous pouvons maintenant combiner les composantes I et Q pour obtenir un signal complexe en bande de base :</p>
+<div class="math notranslate nohighlight">
+\[
+V_{IF}(t)=I_f(t)+jQ_f(t)
+\]</div>
+<p>avec <span class="math notranslate nohighlight">\(I_f\)</span> et <span class="math notranslate nohighlight">\(Q_f\)</span> les signaux <span class="math notranslate nohighlight">\(I\)</span> et <span class="math notranslate nohighlight">\(Q\)</span> filtrés (i.e. les signaux en bande de base).</p>
+<p>La figure ci-dessous présente les signaux I et Q non filtrés.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Baseband signal (I,Q)</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">Vr_rfb</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="o">-</span><span class="n">Vr_rfb</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;I for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Q for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/218bc37e5910a9c5a2381ddeb645524b19ed8920c2e80e4954def89c54a0c090.png" src="../_images/218bc37e5910a9c5a2381ddeb645524b19ed8920c2e80e4954def89c54a0c090.png" />
+<img alt="../_images/8c662722225965d96a469bf7a3c3d035549c22d35afa8dd8ca9aaa32fedbec70.png" src="../_images/8c662722225965d96a469bf7a3c3d035549c22d35afa8dd8ca9aaa32fedbec70.png" />
+</div>
+</div>
+<p>Il convient de s’arrêter sur la nécessité d’utiliser un mélangeur IQ et pas seulement une simple multiplication.</p>
+<div class="dropdown admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pourquoi une démodulation IQ! 💬</p>
+<p>En première approximation, le signal reçu est le signal émis atténué et retardé :</p>
+<div class="math notranslate nohighlight">
+\[
+Vr_{RF}(t) = \beta V_{RF}(t-t_d) = \beta A_{RF} (1 + m V_{base}(t-t_d)) \cos( 2 \pi f_c t + \phi)
+\]</div>
+<p>L’angle <span class="math notranslate nohighlight">\(\phi\)</span> est lié au retard <span class="math notranslate nohighlight">\(t_d\)</span>.</p>
+<p>En notant <span class="math notranslate nohighlight">\(A(t) = \beta A_{RF} (1 + m V_{base}(t-t_d))\)</span>, le signal reçu s’exprime plus simplement : <span class="math notranslate nohighlight">\(Vr_{RF}(t) = A(t) \cos( 2 \pi f_c t + \phi)\)</span>.</p>
+<p>Considérons maintenant le cas ou l’on démodule de façon cohérente, c’est à dire que l’on multiplie seulement le signal reçu par <span class="math notranslate nohighlight">\(\cos( 2 \pi f_c t)\)</span>, dans ce cas, on obtient :</p>
+<div class="math notranslate nohighlight">
+\[
+Vr(t) = A(t) \cos( 2 \pi f_c t + \phi) \cos( 2 \pi f_c t) = \frac{A(t)}{2} (\cos(\phi) + \cos( 2 \pi 2f_c t + \phi) )
+\]</div>
+<p>En conservant que la composante basse fréquence, on obtient :</p>
+<div class="math notranslate nohighlight">
+\[
+Vr(t) =  \frac{A(t)}{2} (\cos(\phi))
+\]</div>
+<p>Dans le cas ou l’angle <span class="math notranslate nohighlight">\(\phi = (2n+1) \frac{\pi}{2}\)</span> (i.e une valeur impaire de <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span>), la tension <span class="math notranslate nohighlight">\(Vr(t)\)</span> est nulle et la <strong>démodulation n’est plus possible</strong>. Notons que la valeur de l’angle <span class="math notranslate nohighlight">\(\phi\)</span> est généralement indéterminée. Il faut donc pouvoir traiter le signal quelle que soit la valeur de l’angle <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>La réponse à cette question est l’utilisation de la démodulation IQ. Dans ce cas :</p>
+<div class="math notranslate nohighlight">
+\[
+I_f(t) =  \frac{A(t)}{2} (\cos(\phi))
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q_f(t) = \frac{A(t)}{2} (\sin(\phi))
+\]</div>
+<p>La valeur de <span class="math notranslate nohighlight">\(A(t)\)</span> est retrouvée à partir de <span class="math notranslate nohighlight">\(2 \sqrt{I_{f}^{2}+Q_{f}^{2}}\)</span> et ne dépend plus de <span class="math notranslate nohighlight">\(\phi\)</span>. Dans ce cas la <strong>démodulation est possible quelle que soit la valeur de <span class="math notranslate nohighlight">\(\phi\)</span></strong>.</p>
+</div>
+<p>Les signaux I et Q ont deux composantes: le signal en bande de base mais aussi une image du signal modulant translaté autour de la fréquence <span class="math notranslate nohighlight">\(2f_c\)</span>. Il convient donc de supprimer cette composante pour ne conserver que le signal en bande de base.</p>
+<p>Cette opération est réalisée avec un filtre passe-bas. Pour notre application nous avons choisi une fréquence de coupure à -3dB de 1KHz. Le gabarit de ce filtre est présenté sur la figure ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">firwin</span>
+
+<span class="n">cutoff</span> <span class="o">=</span> <span class="mf">1e3</span>       <span class="c1"># arbitrary design parameters</span>
+<span class="n">lowpass_order</span> <span class="o">=</span> <span class="mi">51</span>   
+<span class="n">lowpass_delay</span> <span class="o">=</span> <span class="p">(</span><span class="n">lowpass_order</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">sample_rate</span>  <span class="c1"># a lowpass of order N delays the signal by N/2 samples (see plot)</span>
+<span class="c1"># design the filter</span>
+<span class="n">lowpass</span> <span class="o">=</span> <span class="n">firwin</span><span class="p">(</span><span class="n">lowpass_order</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">/</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># calculate frequency response of filter</span>
+<span class="n">t_lp</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lowpass</span><span class="p">))</span><span class="o">/</span><span class="n">sample_rate</span>
+<span class="n">f_lp</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">sample_rate</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">lowpass</span><span class="p">,</span> <span class="mi">2048</span><span class="p">))</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">f_lp</span><span class="o">/</span><span class="mf">1e3</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)))</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;frequency (KHz)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (dB)&#39;</span><span class="p">)</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Image rejection filter&#39;</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/26f442847af41ee31080625a64496376aa2bd08fe7bd9f660353d972f0913e63.png" src="../_images/26f442847af41ee31080625a64496376aa2bd08fe7bd9f660353d972f0913e63.png" />
+</div>
+</div>
+<p>Les signaux I et Q filtrés sont représentés sur la figure ci-dessous. L’enveloppe du signal est bien retrouvée.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Image rejection filter</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">lfilter</span>
+
+<span class="n">If</span> <span class="o">=</span> <span class="n">lfilter</span><span class="p">(</span><span class="n">lowpass</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="n">Qf</span> <span class="o">=</span> <span class="n">lfilter</span><span class="p">(</span><span class="n">lowpass</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">If</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;If&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Qf</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Qf&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">legend</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;If for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+
+<span class="n">Vif</span> <span class="o">=</span> <span class="n">If</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Qf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05bf9db1165310493ca7da969ad2a87521b5bc31fd74c91b2586b3ca4436338c.png" src="../_images/05bf9db1165310493ca7da969ad2a87521b5bc31fd74c91b2586b3ca4436338c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="demodulation-du-signal">
+<h2>Démodulation du signal<a class="headerlink" href="#demodulation-du-signal" title="Permalink to this heading"></a></h2>
+<p>À cette étape, les signaux <span class="math notranslate nohighlight">\(If\)</span> et<span class="math notranslate nohighlight">\(Qf\)</span> peuvent s’exprimer comme :</p>
+<div class="math notranslate nohighlight">
+\[
+I_f = \frac{A_{RF}(1 + 0.4 V_{base})}{2}\cos(\phi)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q_f = \frac{A_{RF}(1 + 0.4 V_{base})}{2}\sin(\phi)
+\]</div>
+<p>avec l’angle <span class="math notranslate nohighlight">\(\phi\)</span> qui est lié à la propagation (mais aussi pratiquement à la différence de phase entre les oscillateurs RF de l’émetteur et du récepteur).</p>
+<p>Rappelons que nous cherchons à reconstituer <span class="math notranslate nohighlight">\(V_{base}\)</span>. Pour cela, il convient de combiner les signaux <span class="math notranslate nohighlight">\(I_f\)</span> et <span class="math notranslate nohighlight">\(Q_f\)</span> ainsi :</p>
+<div class="math notranslate nohighlight">
+\[
+K = \frac{A_{RF}(1 + 0.4 V_{base})}{2} = \sqrt{I_{f}^{2}+Q_{f}^{2}}
+\]</div>
+<p>L’information <span class="math notranslate nohighlight">\(V_{base}\)</span> est retrouvée en supprimant la composante continue de la variable K :</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde{V}_{base} = K - &lt;K&gt; = 0.2 V_{base}
+\]</div>
+<p>avec l’opérateur <span class="math notranslate nohighlight">\(&lt;.&gt;\)</span> qui correspond à la moyenne temporelle et <span class="math notranslate nohighlight">\(\tilde{V}_{base}\)</span> le signal modulant reconstruit sans mise à l’échelle.</p>
+<p>Le programme suivant présente ces opérations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># AM demodulation</span>
+<span class="n">Vif_d</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Vif</span><span class="p">)</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Vif</span><span class="p">))</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Vif_d</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Vif_d for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1f07ea614a5ef5b41bb04f6cabbc5e22bcd0f002ce3c2c9ad13c097cd6b50356.png" src="../_images/1f07ea614a5ef5b41bb04f6cabbc5e22bcd0f002ce3c2c9ad13c097cd6b50356.png" />
+</div>
+</div>
+</section>
+<section id="traitement-du-signal-demodule">
+<h2>Traitement du signal démodulé<a class="headerlink" href="#traitement-du-signal-demodule" title="Permalink to this heading"></a></h2>
+<p>Afin d’identifier les signaux “90Hz” et “150Hz”, le signal reçu est filtré par deux filtres passe bande de fréquence centrale 90HZ et 150Hz. La valeur RMS de la sortie de chaque filtre est calculée et comparée pour indiquer au pilote le désaxement de l’avion.</p>
+<p>Mais auparavant nous allons réduire la fréquence d’échantillonnage d’un facteur 100 ce qui entraîne une nouvelle fréquence d’échantillonnage de 1KHz (<span class="math notranslate nohighlight">\(f_s\)</span>), ce qui nous permet de représenter une forme d’onde dont la fréquence maximale est de 500Hz.</p>
+<p>Pour cela nous allons effectuer deux opérations :</p>
+<ol class="arabic simple">
+<li><p>Filtré le signal avec un filtre passe-bas de fréquence de coupure de 500Hz. Cela diminue la puissance de bruit et évite les phénomènes de repliement.</p></li>
+<li><p>Décimer le signal, c’est à dire ne conserver qu’un point sur 100.</p></li>
+</ol>
+<p>Pour réaliser ces deux étapes nous allons utiliser l’instruction python <code class="docutils literal notranslate"><span class="pre">decimate</span></code> qui réalise le filtrage et la décimation. Pour diminuer les contraintes sur les filtres, nous allons utiliser deux étages pour réaliser cette opération.</p>
+<p>La figure ci-dessous présente le signal avant et après décimation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decimate the IF signal</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">decimate</span>
+
+<span class="c1">#Decimation is performed in two stages to reduce the order of the anti-aliasing filter</span>
+<span class="n">decima</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">pro</span> <span class="o">=</span> <span class="n">decimate</span><span class="p">(</span><span class="n">Vif_d</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Vloc</span> <span class="o">=</span> <span class="n">decimate</span><span class="p">(</span><span class="n">pro</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">tloc</span> <span class="o">=</span> <span class="n">t</span><span class="p">[::</span><span class="n">decima</span><span class="p">]</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">sample_rate</span><span class="o">/</span><span class="n">decima</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">Vif_d</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Without decimation&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">tloc</span><span class="p">,</span><span class="n">Vloc</span><span class="p">,</span><span class="s1">&#39;+b&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;With decimation&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude (V)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Vloc for alpha = &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha_s</span><span class="p">))</span>
+<span class="n">legend</span><span class="p">()</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.06</span><span class="p">)</span>
+<span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c0e13f72c941b48427c37425ad1286df63f622e9895f297665bab61d8cd834b5.png" src="../_images/c0e13f72c941b48427c37425ad1286df63f622e9895f297665bab61d8cd834b5.png" />
+</div>
+</div>
+<p>Le signal est ensuite filtré par deux filtre passe bande.</p>
+<p>La figure suivante présente le gabarit du filtre passe-bande 90Hz pour différents ordres. Pour cette application, nous avons choisi un filtre d’ordre 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basse-band filter 90Hz</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">butter</span><span class="p">,</span> <span class="n">lfilter</span><span class="p">,</span> <span class="n">freqz</span>
+
+<span class="k">def</span> <span class="nf">butter_bandpass</span><span class="p">(</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="p">[</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;band&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">butter_bandpass_filter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">butter_bandpass</span><span class="p">(</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+
+<span class="c1"># Sample rate and desired cutoff frequencies (in Hz).</span>
+<span class="n">lowcut</span> <span class="o">=</span> <span class="mf">85.0</span>
+<span class="n">highcut</span> <span class="o">=</span> <span class="mf">95.0</span>
+
+<span class="c1"># Plot the frequency response for a few different orders.</span>
+<span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">butter_bandpass</span><span class="p">(</span><span class="n">lowcut</span><span class="p">,</span> <span class="n">highcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;order = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">order</span><span class="p">)</span>
+
+<span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">fs</span><span class="p">],</span> <span class="p">[</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)],</span>
+         <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sqrt(0.5)&#39;</span><span class="p">)</span>
+<span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gain&#39;</span><span class="p">)</span>
+<span class="n">grid</span><span class="p">()</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f90ec7ff0767cd56dc80806b97adbed043e7aa8d27db8d567352d47972df63e5.png" src="../_images/f90ec7ff0767cd56dc80806b97adbed043e7aa8d27db8d567352d47972df63e5.png" />
+</div>
+</div>
+<p>Le signal décimé est ensuite filtré par les deux filtres passe-bande, et la valeur efficace de chaque signal filtré est ensuite calculée.</p>
+<p>À partir de cette valeur efficace, la valeur de <span class="math notranslate nohighlight">\(\alpha\)</span> estimé est calculée et comparée à la valeur exacte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v90</span> <span class="o">=</span> <span class="n">butter_bandpass_filter</span><span class="p">(</span><span class="n">Vloc</span><span class="p">,</span> <span class="mf">85.0</span><span class="p">,</span> <span class="mf">95.0</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">rms90</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">v90</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">v150</span> <span class="o">=</span> <span class="n">butter_bandpass_filter</span><span class="p">(</span><span class="n">Vloc</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">rms150</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">v150</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">rms90</span><span class="o">/</span><span class="n">rms150</span>
+<span class="n">alpha_est</span> <span class="o">=</span> <span class="n">K</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">K</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Amplitude des tensions V90 = </span><span class="si">{</span><span class="n">rms90</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s1">3.2e</span><span class="si">}</span><span class="s1">V et V150 = </span><span class="si">{</span><span class="n">rms150</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s1">3.2e</span><span class="si">}</span><span class="s1">V&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valeur de alpha exacte: </span><span class="si">{</span><span class="n">alpha_s</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1"> et valeur de alpha estimée : </span><span class="si">{</span><span class="n">alpha_est</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amplitude des tensions V90 = 4.66e-02V et V150 = 4.74e-02V
+Valeur de alpha exacte: 0.50 et valeur de alpha estimé : 0.50
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalement la valeur de <span class="math notranslate nohighlight">\(\alpha\)</span> estimée est représentée sur l’écran du “LOC”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ecran_loc</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    displays ILS screen</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">xh</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">2.0</span>
+
+    <span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">([</span><span class="n">xh</span><span class="p">,</span> <span class="n">xh</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;--b&#39;</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;--b&#39;</span><span class="p">)</span>
+    <span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">()</span>
+
+<span class="n">ecran_loc</span><span class="p">(</span><span class="n">alpha_est</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d7051fb9b3c6e3d9bcc570ef7eafdf19030d1be11222f1b0313298f709422fdc.png" src="../_images/d7051fb9b3c6e3d9bcc570ef7eafdf19030d1be11222f1b0313298f709422fdc.png" />
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Synthèse</p>
+<p>Dans cette page nous avons vu comment traiter le signal reçu par l’avion en fonction de sa position par rapport à l’axe de la piste. Pour cela nous avons :</p>
+<ol class="arabic simple">
+<li><p>Calculer le signal en bande de base :</p>
+<ul class="simple">
+<li><p>translater le signal autour de 0Hz (démodulation IQ, filtrage passe bas)</p></li>
+<li><p>démodulation AM</p></li>
+</ul>
+</li>
+<li><p>Traiter le signal en bande de base pour obtenir la valeur de <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<ul class="simple">
+<li><p>utiliser deux filtres passe bande pour sélectionner les composantes “90Hz” et “150Hz”</p></li>
+<li><p>Déterminer la valeur de <span class="math notranslate nohighlight">\(\alpha\)</span> à partir des valeurs efficaces des signaux “90Hz” et “150Hz”</p></li>
+</ul>
+</li>
+</ol>
+<p>Cette démarche a été appliquée à un avion centré (<span class="math notranslate nohighlight">\(\alpha=0.5\)</span>). Nous encourageons le lecteur à simuler d’autres positions d’avion avec différents SNR.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="signal_LOC.html" class="btn btn-neutral float-left" title="Signal LOC reçu par l’avion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Ressources/ressources.html" class="btn btn-neutral float-right" title="Ressources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Franck Daout.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

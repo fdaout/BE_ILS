@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Principe de fonctionnement &mdash; BE ILS</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Signal LOC reçu par l’avion" href="signal_LOC.html" />
+    <link rel="prev" title="Présentation du BE “Instrument Landing System” (ILS)" href="presentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BE Instrument landibng system (ILS)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Leçons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="presentation.html">Présentation du BE “Instrument Landing System” (ILS)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Principe de fonctionnement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fonctionnement-du-localizer">Fonctionnement du “localizer”</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cas-1-lavion-est-dans-laxe-de-la-piste-cas-a">Cas 1 - L’avion est dans l’axe de la piste (cas A)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cas-2-lavion-est-a-gauche-de-la-piste-cas-b">Cas 2 - L’avion est à gauche de la piste (cas B)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cas-3-lavion-est-a-droite-de-la-piste-cas-c">Cas 3 - L’avion est à droite de la piste (cas C)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signal_LOC.html">Signal LOC reçu par l’avion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traitement_loc.html">Taritement du signal LOC reçu par l’avion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Ressources/ressources.html">Ressources</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">A propos de</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../About/about.html">A propos de …</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BE Instrument landibng system (ILS)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Principe de fonctionnement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Cours/fonctionnement.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="principe-de-fonctionnement">
+<h1>Principe de fonctionnement<a class="headerlink" href="#principe-de-fonctionnement" title="Permalink to this heading"></a></h1>
+<p>Franck Daout</p>
+<p>septembre 2023</p>
+<div class="note admonition">
+<p class="admonition-title">Objectifs de cette page</p>
+<p>Dans cette partie, nous allons expliquer le principe du “Localizer” en utilisant un exemple.</p>
+<p>A la fin de cette présentation, vous serez capable d’expliquer le principe du “Localiser”. Une connaissance de l’analyse spectrale et de la modulation d’amplitude vous aidera à comprendre plus précisément le principe de fonctionnement.</p>
+</div>
+<section id="fonctionnement-du-localizer">
+<h2>Fonctionnement du “localizer”<a class="headerlink" href="#fonctionnement-du-localizer" title="Permalink to this heading"></a></h2>
+<p>Considérons le cas simple suivant (<a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a>) :</p>
+<figure class="align-default" id="piste-loc">
+<a class="reference internal image-reference" href="../_images/fonction_ILS.png"><img alt="../_images/fonction_ILS.png" src="../_images/fonction_ILS.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text"><em>figure : Schéma de modulation - extrait de https://www.flightsim-corner.com/wp-content/uploads/ILS-v3.3.pdf</em></span><a class="headerlink" href="#piste-loc" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>La partie droite de la piste est éclairée par la modulation 90Hz et la partie gauche par la modulation 150Hz. L’avion reçoit une combinaison de ces deux signaux en fonction de sa position. Cette combinaison est pondérée par les diagrammes d’antenne du faisceau 90Hz et 150Hz que l’on supposera identique (sur la <a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a>, les diagrammes d’antenne sont représentés par des pointillés). Pour rendre compte de ce phénomène, nous définissons le signal reçu par l’antenne de l’avion <span class="math notranslate nohighlight">\(V_{RF}\)</span> comme :</p>
+<div class="math notranslate nohighlight">
+\[
+V_{RF} = (1 - \alpha)V_{RF150} + \alpha V_{RF90}
+\]</div>
+<p>avec <span class="math notranslate nohighlight">\(V_{RF150}\)</span> le signal RF avec la modulation de 150Hz et <span class="math notranslate nohighlight">\(V_{RF90}\)</span> le signal RF avec la modulation “90Hz”. La valeur <span class="math notranslate nohighlight">\(\alpha\)</span> indique la position de l’avion. Ce paramètre varie entre 0 (avion à gauche) et 1 (avion à droite); la valeur <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> correspond à un avion centré.</p>
+<div class="warning admonition">
+<p class="admonition-title">Remarque</p>
+<p>Notons qu’il s’agit d’une modélisation simple qui permet d’expliquer le principe du “localizer”. Une pondération plus réaliste consisterait à utiliser les diagrammes d’antennes de chaque voie.</p>
+</div>
+<section id="cas-1-lavion-est-dans-laxe-de-la-piste-cas-a">
+<h3>Cas 1 - L’avion est dans l’axe de la piste (cas A)<a class="headerlink" href="#cas-1-lavion-est-dans-laxe-de-la-piste-cas-a" title="Permalink to this heading"></a></h3>
+<p>Dans ce cas, le pilote n’a aucune correction à appliquer et l’aiguille du localizer est centrée (<a class="reference internal" href="#loc-05"><span class="std std-numref">Fig. 4</span></a>).</p>
+<figure class="align-center" id="loc-05">
+<a class="reference internal image-reference" href="../_images/ecran_ILS_alpha_05.png"><img alt="../_images/ecran_ILS_alpha_05.png" src="../_images/ecran_ILS_alpha_05.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text"><em>Cadran de l’ILS - L’avion est dans l’axe de la piste</em></span><a class="headerlink" href="#loc-05" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>L’avion se trouve dans le cas A de la <a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a> (au centre). De ce fait, le récepteur reçoit autant d’énergie des deux antennes. Dans ce cas le spectre d’amplitude du signal reçu par l’avion se présente ainsi :</p>
+<figure class="align-center" id="spectre-05">
+<a class="reference internal image-reference" href="../_images/RF_alpha_05.png"><img alt="../_images/RF_alpha_05.png" src="../_images/RF_alpha_05.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text"><em>Spectre du signal reçu - l’avion dans l’axe de la piste (fréquence de la porteuse 108.1MHz)</em></span><a class="headerlink" href="#spectre-05" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Les fréquences et les amplitudes des deux porteuses sont identiques et chacune est modulée à 40 % par le signal modulant. Le spectre rayonné par chaque antenne présente donc un pic central qui est la porteuse et deux petites bandes latérales correspondant aux enveloppes des deux modulations. Dans notre cas cela correspond à des raies. Comme l’avion est dans l’axe de la piste, l’amplitude des raies “90Hz” et “150Hz” est identique.</p>
+</section>
+<section id="cas-2-lavion-est-a-gauche-de-la-piste-cas-b">
+<h3>Cas 2 - L’avion est à gauche de la piste (cas B)<a class="headerlink" href="#cas-2-lavion-est-a-gauche-de-la-piste-cas-b" title="Permalink to this heading"></a></h3>
+<p>L’avion se trouve au point B de la première figure (<a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a>). L’aiguille du localizer est à gauche :</p>
+<figure class="align-center" id="loc-02">
+<a class="reference internal image-reference" href="../_images/ecran_LOC_alpha_02.png"><img alt="../_images/ecran_LOC_alpha_02.png" src="../_images/ecran_LOC_alpha_02.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><em>Cadran de l’ILS - L’avion est à gauche de l’axe de la piste</em></span><a class="headerlink" href="#loc-02" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Au point B (<a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a>), le récepteur reçoit plus d’énergie de la porteuse modulée à 150 Hz que de la porteuse modulée à 90 Hz. La différence de modulation (DDM) entre la voie “90Hz” et “150Hz” n’étant pas nulle, une indication de déviation vers la gauche est alors transmise à l’afficheur.</p>
+<figure class="align-center" id="spectre-02">
+<a class="reference internal image-reference" href="../_images/spectre_RF_alpha_02.png"><img alt="../_images/spectre_RF_alpha_02.png" src="../_images/spectre_RF_alpha_02.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text"><em>Spectre du signal reçu - l’avion est à gauche de l’axe de la piste (fréquence de la porteuse 108.1MHz). Les raies “150Hz” ont une amplitude plus importante que les raies “90Hz”</em></span><a class="headerlink" href="#spectre-02" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cas-3-lavion-est-a-droite-de-la-piste-cas-c">
+<h3>Cas 3 - L’avion est à droite de la piste (cas C)<a class="headerlink" href="#cas-3-lavion-est-a-droite-de-la-piste-cas-c" title="Permalink to this heading"></a></h3>
+<p>Dans ce cas, l’aiguille du “localizer” est à droite :</p>
+<figure class="align-center" id="loc-07">
+<a class="reference internal image-reference" href="../_images/ecran_loc_alpha_07.png"><img alt="../_images/ecran_loc_alpha_07.png" src="../_images/ecran_loc_alpha_07.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Cadran de l’ILS - L’avion est à droite de l’axe de la piste</em></span><a class="headerlink" href="#loc-07" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Au point C (<a class="reference internal" href="#piste-loc"><span class="std std-numref">Fig. 3</span></a>), l’énergie de la porteuse modulée à 150 Hz est plus faible que celle modulée à 90Hz. La DDM est mesurée et transmise à l’afficheur qui indique alors la déviation vers la droite.</p>
+<figure class="align-center" id="spectre-07">
+<a class="reference internal image-reference" href="../_images/spectre_RF_alpha_07.png"><img alt="../_images/spectre_RF_alpha_07.png" src="../_images/spectre_RF_alpha_07.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>Spectre du signal reçu - l’avion est à droite de l’axe de la piste (fréquence de la porteuse 108.1MHz). Les raies “150Hz” ont une amplitude plus faible que les raies “90Hz”.</em></span><a class="headerlink" href="#spectre-07" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="tip admonition">
+<p class="admonition-title">Synthèse</p>
+<p>Dans cette page nous avons vu comment modéliser mathématiquement la position de l’avion (par l’intermédiaire du coefficient <span class="math notranslate nohighlight">\(\alpha\)</span>). Les trois positions de l’avion par rapport à l’axe de la piste ont été présentées. Les spectres du signal RF ont montré que la différence de modulation (DDM) permettait d’identifier la position de l’avion.</p>
+<p>Dans la suite nous allons chercher à “fabriquer” le signal reçu par l’avion en fonction de sa position.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="presentation.html" class="btn btn-neutral float-left" title="Présentation du BE “Instrument Landing System” (ILS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signal_LOC.html" class="btn btn-neutral float-right" title="Signal LOC reçu par l’avion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Franck Daout.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

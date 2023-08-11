@@ -1,0 +1,88 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "b9115da7-d882-4450-b67a-5dcff1afef5a",
+   "metadata": {},
+   "source": [
+    "# Présentation du BE ILS \"Instrument Landing System\"\n",
+    "\n",
+    "\n",
+    "**Resources**\n",
+    "* (1) \"Radar-based landing system for uncontrolled flights\" de L. Baardman (26 septembre 2016).\n",
+    "* (2) [Cours de radiocommunication](https://dspillustrations.com/pages/posts/misc/baseband-up-and-downconversion-and-iq-modulation.html) \n",
+    "* (3) Jan Leuchter 1, Radim Bloudicek 1, Jan Boril 1, Josef Bajer 1 and Erik Blasch, \"Influence of Aircraft Power Electronics Processing on Backup VHF Radio Systems\"\n",
+    "* (4) https://www.flightsim-corner.com/wp-content/uploads/ILS-v3.3.pdf"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d73550b6-4320-45d3-8787-d9dde931c1d6",
+   "metadata": {},
+   "source": [
+    "## Introduction de l'ILS\n",
+    "\n",
+    "L'ILS (Instrument Landing System) est un système de navigation au sol qui fournit un guidage latéral et vertical aux avions en approche d'une piste . L'ILS utilise une combinaison de signaux radio et de faisceaux lumineux pour permettre un atterrissage en toute sécurité dans des conditions météorologique dégradées. Les récepteurs ILS embarqués dans l'avion (figure ci-dessous) comparent le taux de deux modulations d'amplitude de deux signaux. Ces signaux peuvent être transmis au pilote automatique pour que l'avion se dirige vers la piste d'atterrissage, guidé par l'ILS. \n",
+    "\n",
+    "|![Présentation de l'ILS - extrait de (3)](_static/images/presentation_ILS.png) |\n",
+    "|:--:|\n",
+    "|*Présentation de l'ILS - figure extraite de \"Influence of Aircraft Power Electronics Processing on Backup VHF Radio Systems\"*|\n",
+    "\n",
+    "L'ILS fonctionne avec deux sous-systèmes indépendants au sol : le \"localizer\" de piste pour le guidage latéral et le \"glide slope\" pour le guidage vertical.\n",
+    "\n",
+    "### Localizer\n",
+    "\n",
+    "Le LOC (Localizer) est un réseau d'antennes généralement situé au-delà de l'extrémité d'approche de la piste, des deux côtés. Il se compose de plusieurs paires d'antennes directionnelles. Chaque côté de la piste émet un signal dont l'un est modulé à 90 Hz et l'autre à 150 Hz. Si l'avion reçoit une des deux modulations plus forte que l'autre, cela signifie que l'avion est décentré par rapport à l'axe de la piste. L'aiguille de l'indicateur LOC embarqué indique si l'avion est trop à gauche ou trop à droite de l'axe. Le principe est illustré graphiquement ci-dessous.\n",
+    "\n",
+    "Les fréquences utilisées se situent dans la gamme VHF entre 108.10 MHz et 111.95 MHz. \n",
+    "\n",
+    "|![Principe du localizer et du glide slope - extrait de (1)](_static/images/ILS.png)|\n",
+    "|:--:|\n",
+    "|*Principe du localizer et du glide slope - extrait de \"Radar-based landing system for uncontrolled flights\"*|\n",
+    "\n",
+    "### Glide slope\n",
+    "\n",
+    "Le Glide Slope (GS) utilise une technique similaire à celle du LOC. Il est situé à l'extrémité de la piste, dans la zone de toucher des roues. Lorsqu'une modulation apparaît plus \"forte\" à l'avion, l'indication est soit au-dessus, soit au-dessous de l'alignement de descente. Le principe est illustré graphiquement à la Figure ci-dessus. \n",
+    "\n",
+    "La fréquence de la porteuse est dans la bande de fréquence entre 329.3 et 335 MHz. Chaque fréquence est espacée de 150 kHz et 40 canaux de cette bande sont directement appariés aux 40 canaux du localizer. Il suffit donc de se caler sur une fréquence LOC pour bénéficier automatiquement de l'alignement de descente."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5da64c42-d8d5-43f5-9c25-d661e897821f",
+   "metadata": {},
+   "source": [
+    "## Objectif de ce travail\n",
+    "\n",
+    "Dans ce notebook, nous allons simuler le signal reçu par l'avion d'un localizer en fonction de sa position par rapport à l'axe de la piste. Puis dans un second temps, nous allons chercher à traiter ce signal reçu. \n",
+    "\n",
+    "Afin de simplifier l'étude du système, on considère deux antennes directives, présentant des faisceaux très étroits, situées de part et d'autre de la piste et qui émettent, dans le prolongement de l'axe de cette dernière, des signaux modulés en amplitude à des fréquences différentes. On supposera que l'antenne située sur le coté droit de la piste rayonne une porteuse modulée par un signal AM de 150 Hz et l'antenne située sur le côté gauche, émet une autre porteuse, modulée par un signal AM de 90 Hz. Les fréquences et les amplitudes des deux porteuses sont identiques.\n",
+    "\n",
+    "Notons aussi qu'il s'agit d'une étude simplifiée qui de ce fait réalise des approximations qui peuvent apparaître au spécialiste comme grossières. \n",
+    "\n",
+    "Ce Bureau d'Étude (BE) permet d'illustrer les notions de modulation analogique et les cours d'analyse spectrale."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

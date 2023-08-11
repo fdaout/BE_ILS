@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Présentation du BE ILS “Instrument Landing System” &mdash; BE ILS</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Présentation du BE ILS “Instrument Landing System”" href="../Ressources/presentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BE Instrument landibng system (ILS)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">leçons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cours/presentation.html">Présentation du BE ILS “Instrument Landing System”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cours/fonctionnement.html">Principe de fonctionnement</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Ressources/presentation.html">Présentation du BE ILS “Instrument Landing System”</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">A propos de</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Présentation du BE ILS “Instrument Landing System”</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-de-lils">Introduction de l’ILS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#localizer">Localizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glide-slope">Glide slope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#objectif-de-ce-travail">Objectif de ce travail</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BE Instrument landibng system (ILS)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Présentation du BE ILS “Instrument Landing System”</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/About/presentation.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="presentation-du-be-ils-instrument-landing-system">
+<h1>Présentation du BE ILS “Instrument Landing System”<a class="headerlink" href="#presentation-du-be-ils-instrument-landing-system" title="Permalink to this heading"></a></h1>
+<p><strong>Resources</strong></p>
+<ul class="simple">
+<li><p>(1) “Radar-based landing system for uncontrolled flights” de L. Baardman (26 septembre 2016).</p></li>
+<li><p>(2) <a class="reference external" href="https://dspillustrations.com/pages/posts/misc/baseband-up-and-downconversion-and-iq-modulation.html">Cours de radiocommunication</a></p></li>
+<li><p>(3) Jan Leuchter 1, Radim Bloudicek 1, Jan Boril 1, Josef Bajer 1 and Erik Blasch, “Influence of Aircraft Power Electronics Processing on Backup VHF Radio Systems”</p></li>
+<li><p>(4) https://www.flightsim-corner.com/wp-content/uploads/ILS-v3.3.pdf</p></li>
+</ul>
+<section id="introduction-de-lils">
+<h2>Introduction de l’ILS<a class="headerlink" href="#introduction-de-lils" title="Permalink to this heading"></a></h2>
+<p>L’ILS (Instrument Landing System) est un système de navigation au sol qui fournit un guidage latéral et vertical aux avions en approche d’une piste . L’ILS utilise une combinaison de signaux radio et de faisceaux lumineux pour permettre un atterrissage en toute sécurité dans des conditions météorologique dégradées. Les récepteurs ILS embarqués dans l’avion (figure ci-dessous) comparent le taux de deux modulations d’amplitude de deux signaux. Ces signaux peuvent être transmis au pilote automatique pour que l’avion se dirige vers la piste d’atterrissage, guidé par l’ILS.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Présentation de l'ILS - extrait de (3)" src="About/_static/images/presentation_ILS.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Présentation de l’ILS - figure extraite de “Influence of Aircraft Power Electronics Processing on Backup VHF Radio Systems”</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>L’ILS fonctionne avec deux sous-systèmes indépendants au sol : le “localizer” de piste pour le guidage latéral et le “glide slope” pour le guidage vertical.</p>
+<section id="localizer">
+<h3>Localizer<a class="headerlink" href="#localizer" title="Permalink to this heading"></a></h3>
+<p>Le LOC (Localizer) est un réseau d’antennes généralement situé au-delà de l’extrémité d’approche de la piste, des deux côtés. Il se compose de plusieurs paires d’antennes directionnelles. Chaque côté de la piste émet un signal dont l’un est modulé à 90 Hz et l’autre à 150 Hz. Si l’avion reçoit une des deux modulations plus forte que l’autre, cela signifie que l’avion est décentré par rapport à l’axe de la piste. L’aiguille de l’indicateur LOC embarqué indique si l’avion est trop à gauche ou trop à droite de l’axe. Le principe est illustré graphiquement ci-dessous.</p>
+<p>Les fréquences utilisées se situent dans la gamme VHF entre 108.10 MHz et 111.95 MHz.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="Principe du localizer et du glide slope - extrait de (1)" src="About/_static/images/ILS.png" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><em>Principe du localizer et du glide slope - extrait de “Radar-based landing system for uncontrolled flights”</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glide-slope">
+<h3>Glide slope<a class="headerlink" href="#glide-slope" title="Permalink to this heading"></a></h3>
+<p>Le Glide Slope (GS) utilise une technique similaire à celle du LOC. Il est situé à l’extrémité de la piste, dans la zone de toucher des roues. Lorsqu’une modulation apparaît plus “forte” à l’avion, l’indication est soit au-dessus, soit au-dessous de l’alignement de descente. Le principe est illustré graphiquement à la Figure ci-dessus.</p>
+<p>La fréquence de la porteuse est dans la bande de fréquence entre 329.3 et 335 MHz. Chaque fréquence est espacée de 150 kHz et 40 canaux de cette bande sont directement appariés aux 40 canaux du localizer. Il suffit donc de se caler sur une fréquence LOC pour bénéficier automatiquement de l’alignement de descente.</p>
+</section>
+</section>
+<section id="objectif-de-ce-travail">
+<h2>Objectif de ce travail<a class="headerlink" href="#objectif-de-ce-travail" title="Permalink to this heading"></a></h2>
+<p>Dans ce notebook, nous allons simuler le signal reçu par l’avion d’un localizer en fonction de sa position par rapport à l’axe de la piste. Puis dans un second temps, nous allons chercher à traiter ce signal reçu.</p>
+<p>Afin de simplifier l’étude du système, on considère deux antennes directives, présentant des faisceaux très étroits, situées de part et d’autre de la piste et qui émettent, dans le prolongement de l’axe de cette dernière, des signaux modulés en amplitude à des fréquences différentes. On supposera que l’antenne située sur le coté droit de la piste rayonne une porteuse modulée par un signal AM de 150 Hz et l’antenne située sur le côté gauche, émet une autre porteuse, modulée par un signal AM de 90 Hz. Les fréquences et les amplitudes des deux porteuses sont identiques.</p>
+<p>Notons aussi qu’il s’agit d’une étude simplifiée qui de ce fait réalise des approximations qui peuvent apparaître au spécialiste comme grossières.</p>
+<p>Ce Bureau d’Étude (BE) permet d’illustrer les notions de modulation analogique et les cours d’analyse spectrale.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Ressources/presentation.html" class="btn btn-neutral float-left" title="Présentation du BE ILS “Instrument Landing System”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Franck Daout.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
